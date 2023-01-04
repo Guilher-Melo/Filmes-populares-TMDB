@@ -1,4 +1,4 @@
-import getPopularMovies from "../api/api.js";
+import getPopularMovies from "./api/api.js";
 
 const lista = document.querySelector('.listFilm')
 const image = 'https://image.tmdb.org/t/p/w500'
