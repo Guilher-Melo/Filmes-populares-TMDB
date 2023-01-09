@@ -27,10 +27,59 @@ body {
   display: none;
 }
 
+.overview {
+  width: 305px;
+  height:469px;
+  background-color: white;
+  position: absolute;
+  display: none;
+  color: black; 
+  transition: 0.3s;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.overview:hover {
+  transform: scale(1.1);
+}
+
+.titleView {
+  text-align: center;
+  margin: 12px;
+}
+
+.textMovie {
+  text-align: center;
+  padding: 12px;
+  line-height: 1.5rem;
+}
+
+.overview span {
+  background-color: rgba(44, 44, 44, 0.881);
+ padding: 0.25rem 0.5rem;
+ color: white;
+ border-radius: 3px;
+ font-weight: bold;
+ position: relative;
+ left: 128px;
+ top: 40px;
+}
+
+.overview .yellow {
+  color: orange;
+}
+
+.overview .green {
+  color: lightgreen;
+}
+
+.overview .red {
+  color: red;
+}
+
 .listFilm{
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   column-gap: 3rem;
   row-gap: 4rem;
 }
@@ -42,10 +91,11 @@ body {
 }
 
 .imgFilm {
-  width: 180px;
+  width: 240px;
   border-radius: 6px;
   margin-top: 32px;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .imgFilm:hover {
@@ -56,7 +106,8 @@ body {
   font-weight: bold;
   font-size: 110%;
   text-align: center;
-  padding-top: 17px;
+  padding-top: 20px;
   padding-left: 8px;
+  margin-bottom: 15px;
 }
 
