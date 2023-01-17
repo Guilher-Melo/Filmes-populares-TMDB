@@ -25,7 +25,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-Mostra os filmes que estão em alta por ordem decrescente.
+Mostra os filmes que estão em alta por ordem decrescente, mostrando sua sinopse e sua nota caso o usuário clique no poster. Além disso, permite que o usuário faça uma busca por uma palavra chave e um nova lista de filmes será retornada de acordo com a busca feita.
 
 
 ## :memo: Licença
