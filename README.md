@@ -1,6 +1,6 @@
 <h1 align = "center"> Filmes-populares-TMDB</h1>
 
-<p align = "center" >Consumindo a API do TMDB para listar os filmes mais populares no momento</p>
+<p align = "center" >Consumindo a API do TMDB para listar os filmes mais populares no momento, além de buscar outros filmes de acordo com a palavra chave.</p>
 
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
