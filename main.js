@@ -1,10 +1,13 @@
-import getPopularMovies from "./api/api.js";
+import { getPopularMovies, getMovie } from "./api/api.js";
 
-const lista = document.querySelector('.listFilm')
-const image = 'https://image.tmdb.org/t/p/w500'
+const lista = document.querySelector('.listFilm');
+const image = 'https://image.tmdb.org/t/p/w500';
+
+const form = document.querySelector('#form');
+const search = document.querySelector('#search')
 
 async function getAllPopularMovies() {
-  const movies = await getPopularMovies()
+  const movies = await getPopularMovies();
   movies.forEach(movie => renderMovie(movie));
 }
 
@@ -20,7 +23,7 @@ let div = document.createElement('div');
 let nota = document.createElement('span');
 nota.innerText = vote_average;
 
-if (vote_average > 8) {
+if (vote_average >= 8) {
   nota.className = 'green';
 } else if(vote_average > 6) {
   nota.className = 'yellow';
@@ -73,5 +76,30 @@ function hideDetails(div) {
       div.style.display = 'none';
     }
   })
+}
+
+form.addEventListener('submit', (e)=> {
+  e.preventDefault();
+  const searchTerm = search.value;
+  if(searchTerm) {
+    const titulo = document.querySelector('.titulo');
+    titulo.innerText = "Results"
+    cleanList();
+    async function getMovieTerm() {
+      const movie = await getMovie(searchTerm);
+      movie.forEach(movie=> renderMovie(movie));
+    }
+    getMovieTerm();
+  } else {
+    cleanList();
+    const titulo = document.querySelector('.titulo');
+    titulo.innerText = "Popular Movies"
+    getAllPopularMovies();
+  }
+})
+
+function cleanList(){
+  const list = document.querySelector('.listFilm');
+  list.innerText = "";
 }
 
