@@ -4,7 +4,9 @@ const lista = document.querySelector('.listFilm');
 const image = 'https://image.tmdb.org/t/p/w500';
 
 const form = document.querySelector('#form');
-const search = document.querySelector('#search')
+const search = document.querySelector('#search');
+
+const iconHome = document.querySelector('.material-symbols-outlined');
 
 async function getAllPopularMovies() {
   const movies = await getPopularMovies();
@@ -16,7 +18,7 @@ window.onload = function() {
 }
 
 function renderMovie(movie) {
- const { poster_path, original_title, overview, vote_average } = movie;
+ const { poster_path, title, overview, vote_average } = movie;
 
 let li = document.createElement('li');
 let div = document.createElement('div');
@@ -32,7 +34,7 @@ if (vote_average >= 8) {
 }
 div.className = 'overview';
 let h3 = document.createElement('h3');
-h3.innerText = original_title;
+h3.innerText = title;
 h3.className = 'titleView'
 let p = document.createElement('p');
 p.className = 'textMovie';
@@ -45,11 +47,11 @@ div.appendChild(nota);
 let img = document.createElement('img');
 img.className = 'imgFilm'
 img.src = `${image}${poster_path}`
-img.alt = original_title
+img.alt = title
 
 
 let span = document.createElement('span');
-span.innerHTML = original_title
+span.innerHTML = title
 span.className = 'nameFilm'
 
 li.appendChild(img);
@@ -91,10 +93,7 @@ form.addEventListener('submit', (e)=> {
     }
     getMovieTerm();
   } else {
-    cleanList();
-    const titulo = document.querySelector('.titulo');
-    titulo.innerText = "Popular Movies"
-    getAllPopularMovies();
+      getHome();
   }
 })
 
@@ -103,3 +102,12 @@ function cleanList(){
   list.innerText = "";
 }
 
+iconHome.addEventListener('click', getHome);
+
+function getHome() {
+  const titulo = document.querySelector('.titulo');
+  titulo.innerText = "Popular Movies"
+  cleanList();
+  getAllPopularMovies();
+  search.value = '';
+}
