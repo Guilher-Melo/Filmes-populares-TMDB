@@ -23,7 +23,7 @@ function renderMovie(movie) {
 let li = document.createElement('li');
 let div = document.createElement('div');
 let nota = document.createElement('span');
-nota.innerText = vote_average;
+nota.innerText = vote_average.toFixed(1);
 
 if (vote_average >= 8) {
   nota.className = 'green';
